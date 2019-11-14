@@ -1,29 +1,32 @@
 import React, { Component } from 'react';
 import WordCloud from 'wordcloud';
 
-const styles = {
-  fontFamily: 'sans-serif',
-  textAlign: 'center',
-};
-
 export class TagCloud extends Component {
 
+  componentDidMount() {
+    this.updateWordCloud(this.props.words, this.props.scale);
+  }
+
   componentDidUpdate() {
+    this.updateWordCloud(this.props.words, this.props.scale);
+  }
+
+  updateWordCloud(words, scale) {
     WordCloud(this.refs['my-canvas'], {
-      list: this.props.words,
-      weightFactor: this.props.scale,
+      list: words,
+      weightFactor: scale,
       shrinkToFit: true,
-      click: (item) => console.log(item),
+      click: (item) => {
+        const term = item[0];
+        console.log(item[0]);
+        this.props.history && this.props.history.push(`/topics/${term}`);
+      },
     });
   }
 
   render() {
     return (
-      <div style={styles}>
-        <h2>{'\u2728'} Terms {'\u2728'}</h2>
-        <canvas ref="my-canvas" width='900' height='500'>
-        </canvas>
-      </div>
+      <canvas ref="my-canvas" width='700' height='400' />
     );
   }
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-// import WordCloud from 'wordcloud';
 import { TermsList }from './terms/terms';
 
 class App extends Component {
@@ -10,6 +9,7 @@ class App extends Component {
       <TermsList />
     );
   }
+
 }
 
 export default App;
