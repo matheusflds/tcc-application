@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { TagCloud } from '../TagCloud/TagCloud.component';
+import { TagCloud } from 'components/TagCloud';
 import { ListWrapperStyled } from './TermList.styles';
 
 export class TermList extends Component {

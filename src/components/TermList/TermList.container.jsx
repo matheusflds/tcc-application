@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { termList } from '../../data/term.data';
+import { termList } from 'data/term.data';
 import { TermList } from './TermList.component';
 
 export class TermListContainer extends Component {

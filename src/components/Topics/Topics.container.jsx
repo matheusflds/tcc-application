@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { Topics } from './Topics.component';
-import { topicList } from '../../data/topic.data';
+import { topicList } from 'data/topic.data';
 
 export class TopicsContainer extends Component {
 

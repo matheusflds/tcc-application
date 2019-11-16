@@ -1,4 +1,4 @@
-import request from '../utils/http/request';
+import request from 'utils/http/request';
 
 export const termList = async () => {
   const options = {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { TagCloud } from '../TagCloud';
+import { TagCloud } from 'components/TagCloud';
 
 export class Topics extends Component {
 
