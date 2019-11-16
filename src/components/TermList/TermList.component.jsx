@@ -8,7 +8,13 @@ export class TermList extends Component {
     return (
       <ListWrapperStyled>
         <h2>{'\u2728'} Terms {'\u2728'}</h2>
-        {this.props.terms && <TagCloud words={this.props.terms} scale={100} />}
+        {this.props.terms &&
+          <TagCloud
+            words={this.props.terms}
+            scale={100}
+            clickHandler={this.props.termClickHandler}
+          />
+        }
       </ListWrapperStyled>
     );
   }

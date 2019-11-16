@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import { Topics } from './Topics.component';
+import { topicList } from '../../data/topic.data';
 
 export class TopicsContainer extends Component {
 
@@ -17,15 +17,10 @@ export class TopicsContainer extends Component {
     if (!query) {
       return;
     }
-    try {
-      const { data } = await axios.get(`http://127.0.0.1:5000/topics?query=${query}`);
-      this.setState({
-        ...this.state,
-        topics: data.topics,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    const { topics } = await topicList(query);
+    this.setState({
+      topics: topics,
+    });
   }
 
   render() {

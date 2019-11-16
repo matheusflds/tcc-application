@@ -19,7 +19,7 @@ export class TagCloud extends Component {
       click: (item) => {
         const term = item[0];
         console.log(item[0]);
-        this.props.history && this.props.history.push(`/topics/${term}`);
+        this.props.clickHandler && this.props.clickHandler(term);
       },
     });
   }

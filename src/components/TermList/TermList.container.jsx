@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import request from '../../utils/http/request';
+import { termList } from '../../data/term.data';
 import { TermList } from './TermList.component';
 
 export class TermListContainer extends Component {
@@ -13,20 +13,22 @@ export class TermListContainer extends Component {
   }
 
   async componentDidMount() {
-    try {
-      const data = await request({ url: '/terms', method: 'GET' });
-      this.setState({
-        ...this.state,
-        terms: data.terms,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    const { terms } = await termList();
+    this.setState({
+      terms: terms,
+    });
   };
+
+  termClickHandler = (term) => {
+    this.props.history.push(`/topics/${term}`)
+  }
 
   render() {
     return (
-      <TermList terms={this.state.terms} />
+      <TermList
+        terms={this.state.terms}
+        termClickHandler={this.termClickHandler}
+      />
     );
   }
 }
