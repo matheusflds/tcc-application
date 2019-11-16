@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { TagCloud } from '../components/tagcloud';
 import axios from 'axios';
 
-export class Topics extends Component {
+import { Topics } from './Topics.component';
+
+export class TopicsContainer extends Component {
 
   constructor(props) {
     super(props);
@@ -29,9 +30,7 @@ export class Topics extends Component {
 
   render() {
     return(
-      this.state.topics && this.state.topics.map((topic, index) => 
-        <TagCloud words={topic} scale={500} key={index} />
-      )
+      <Topics topics={this.state.topics} />
     );
   }
 
