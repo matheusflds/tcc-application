@@ -26,7 +26,7 @@ export class TagCloud extends Component {
 
   render() {
     return (
-      <canvas ref="my-canvas" width='700' height='400' />
+      <canvas ref="my-canvas" width={this.props.width} height="400" />
     );
   }
 
