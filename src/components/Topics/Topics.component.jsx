@@ -15,9 +15,19 @@ import { TermDetails } from 'components/TermDetails';
 import { TopicPanel } from './TopicPanel.component';
 
 export class Topics extends Component {
-  state = {
-    value: 0,
-  };
+  constructor(props) {
+    super(props)
+    this.state = {
+      value: 0,
+      panelWidth: null,
+    };
+    this.panelRef = React.createRef();
+  }
+
+  componentDidMount() {
+    const width = parseFloat(getComputedStyle(this.panelRef.current).width.replace('px', ''));
+    this.setState({ panelWidth: width });
+  }
 
   handleChange = (event, newValue) => {
     this.setState({ value: newValue });
@@ -33,7 +43,7 @@ export class Topics extends Component {
           />
         </Grid>
         <Grid item xs={12}>
-          <Paper>
+          <Paper ref={this.panelRef}>
           <AppBar position="static" color="default">
             <Tabs
               value={this.state.value}
@@ -54,7 +64,12 @@ export class Topics extends Component {
             {
               this.props.topics.map((topic, index) => (
                 <TopicPanel value={this.state.value} index={index}>
-                  <TagCloud words={topic} scale={500} key={index} />
+                  <TagCloud
+                    words={topic}
+                    scale={500}
+                    key={index}
+                    width={this.state.panelWidth}
+                  />
                 </TopicPanel>
               ))
             }
