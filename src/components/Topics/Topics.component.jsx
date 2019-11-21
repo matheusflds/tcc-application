@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import times from 'lodash.times';
 
-import { TagCloud } from 'components/TagCloud';
-
 import {
   Grid,
   Paper,
@@ -63,14 +61,13 @@ export class Topics extends Component {
           </AppBar>
             {
               this.props.topics.map((topic, index) => (
-                <TopicPanel value={this.state.value} index={index}>
-                  <TagCloud
-                    words={topic}
-                    scale={500}
-                    key={index}
-                    width={this.state.panelWidth}
-                  />
-                </TopicPanel>
+                <TopicPanel
+                  key={index}
+                  value={this.state.value}
+                  index={index}
+                  topic={topic}
+                  cloudWidth={this.state.panelWidth}
+                />
               ))
             }
           </Paper>
