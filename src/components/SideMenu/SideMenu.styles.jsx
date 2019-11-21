@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import blue from '@material-ui/core/colors/blue';
+import grey from '@material-ui/core/colors/grey';
 
 export const MenuItemStyled = withStyles(theme => ({
   root: props => {
@@ -16,6 +17,12 @@ export const MenuItemStyled = withStyles(theme => ({
       '& .MuiListItemIcon-root': {
         color: 'rgba(0, 0, 0, 0.54)',
       },
+      '&:hover': {
+        backgroundColor: grey[300],
+        '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
+          color: 'rgba(0, 0, 0, 1)',
+        }
+      }
     }
     if(props.focused){
       return ({

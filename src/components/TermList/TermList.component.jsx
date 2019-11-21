@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import Typography from '@material-ui/core/Typography';
 
 import { TagCloud } from 'components/TagCloud';
+import { TermSearch } from 'components/TermSearch';
 import { ListWrapperStyled } from './TermList.styles';
+
+import {
+  Paper,
+  Grid,
+  Typography,
+} from '@material-ui/core';
 
 export class TermList extends Component {
   constructor(props) {
@@ -20,17 +26,26 @@ export class TermList extends Component {
 
   render() {
     return (
-      <ListWrapperStyled ref={this.termList}>
-        <Typography variant="h4">{'\u2728'} Terms {'\u2728'}</Typography>
-        {this.props.terms &&
-          <TagCloud
-            words={this.props.terms}
-            scale={100}
-            width={this.state.tagCloudWidth}
-            clickHandler={this.props.termClickHandler}
-          />
-        }
-      </ListWrapperStyled>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <TermSearch />
+        </Grid>
+        <Grid item xs={12}>
+          <Paper>
+            <ListWrapperStyled ref={this.termList}>
+              <Typography variant="h4">{'\u2728'} Terms {'\u2728'}</Typography>
+              {this.props.terms &&
+                <TagCloud
+                  words={this.props.terms}
+                  scale={100}
+                  width={this.state.tagCloudWidth}
+                  clickHandler={this.props.termClickHandler}
+                />
+              }
+            </ListWrapperStyled>
+          </Paper>
+        </Grid>
+      </Grid>
     );
   }
 }

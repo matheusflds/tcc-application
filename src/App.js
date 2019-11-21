@@ -9,11 +9,13 @@ import {
   Logo,
   ContentBoxStyled,
 } from './GlobalStyles'
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import {
+  Toolbar,
+  Container,
+  Grid,
+  Box,
+  Typography,
+} from '@material-ui/core';
 
 import { TermList } from './components/TermList';
 import { Topics } from './components/Topics';
@@ -29,7 +31,11 @@ class App extends Component {
         <AppBarStyled position='static'>
           <Toolbar>
             <Logo src={logo} />
-            <Typography variant='h6'>Nome</Typography>
+            <Typography variant='h5'>
+              <Box fontWeight="fontWeightLight">
+                Argus
+              </Box>
+            </Typography>
           </Toolbar>
         </AppBarStyled>
         <Container maxWidth="lg">
@@ -39,12 +45,10 @@ class App extends Component {
                 <SideMenu />
               </Grid>
               <Grid item xs={10}>
-                <Paper>
-                  <Switch>
-                    <Route path='/' exact={true} component={TermList} />
-                    <Route path='/topics/:term' component={Topics} />
-                  </Switch>
-                </Paper>
+                <Switch>
+                  <Route path='/' exact={true} component={TermList} />
+                  <Route path='/topics/:term' component={Topics} />
+                </Switch>
               </Grid>
             </ContentBoxStyled>
           </BrowserRouter>
