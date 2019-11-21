@@ -67,6 +67,7 @@ export class Topics extends Component {
                   index={index}
                   topic={topic}
                   cloudWidth={this.state.panelWidth}
+                  polarity={25.5}
                 />
               ))
             }
