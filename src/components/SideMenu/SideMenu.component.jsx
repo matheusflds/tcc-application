@@ -13,7 +13,7 @@ import AssessmentIcon from '@material-ui/icons/Assessment';
 
 export class SideMenu extends Component {
   state = {
-    current: window.location.pathname === '/' ? 'terms' : 'statistics',
+    current: window.location.pathname === '/' ? 'statistics' : 'terms',
   };
 
   onLinkClick = (current) => () => {

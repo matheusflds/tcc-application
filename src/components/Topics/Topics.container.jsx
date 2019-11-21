@@ -9,23 +9,24 @@ export class TopicsContainer extends Component {
     super(props);
     this.state = {
       topics: [],
+      term: null,
     };
   }
 
   async componentDidMount() {
     const query = this.props.match.params.term;
-    if (!query) {
-      return;
+    if (query) {
+      const { topics } = await topicList(query);
+      this.setState({
+        term: query,
+        topics: topics,
+      });
     }
-    const { topics } = await topicList(query);
-    this.setState({
-      topics: topics,
-    });
   }
 
   render() {
     return(
-      <Topics topics={this.state.topics} />
+      <Topics topics={this.state.topics} term={this.state.term} />
     );
   }
 
