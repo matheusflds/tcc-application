@@ -21,23 +21,21 @@ export const TopicPanel = (props) => {
   const g = Math.floor(props.polarity * 2.55);
   const colorHex = '#' + getHexColor(r) + getHexColor(g) + getHexColor(0);
 
-  const reviewsPolarityLevel = (polarity) =>{
-    switch(polarity) {
-      case polarity >= 90:
-        return "Overwhelmingly Positive";
-      case polarity >= 80:
-        return "Very Positive";
-      case polarity >= 70:
-        return "Positive";
-      case polarity >= 60:
-        return "Mostly Positive";
-      case polarity >= 40:
-        return "Mixed";
-      case polarity >= 25:
-        return "Mostly Negative";
-      default:
-        return "Negative";
-    }
+  const reviewsPolarityLevel = () =>{
+    if(props.polarity >= 90)
+      return "Overwhelmingly Positive";
+    else if(props.polarity >= 80)
+      return "Very Positive";
+    else if(props.polarity >= 70)
+      return "Positive";
+    else if(props.polarity >= 60)
+      return "Mostly Positive";
+    else if(props.polarity >= 40)
+      return "Mixed";
+    else if(props.polarity >= 25)
+      return "Mostly Negative";
+    else
+      return "Negative";
   }
 
   return (
@@ -56,29 +54,34 @@ export const TopicPanel = (props) => {
             scale={1000}
             key={index}
             width={cloudWidth}
+            height={250}
           />
         </Grid>
         <Grid item xs={12}>
-          <Grid container justify="center" spacing={2}>
-            <Grid item>
-              <Gauge
-                label={null}
-                value={props.polarity}
-                width={200}
-                height={130}
-                color={colorHex}
-              />
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item xs={12}>
           <Grid container justify="center">
-            <Grid item>
-              <Typography variant='body2'>
-                <Box fontWeight="fontWeightBold">
-                  {reviewsPolarityLevel(props.polarity)}
-                </Box>
-              </Typography>
+            <Grid item xs={12}>
+              <Grid container justify="center" spacing={2}>
+                <Grid item>
+                  <Gauge
+                    label={null}
+                    value={props.polarity}
+                    width={200}
+                    height={130}
+                    color={colorHex}
+                  />
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={12}>
+              <Grid container justify="center">
+                <Grid item>
+                  <Typography variant='body2'>
+                    <Box fontWeight="fontWeightBold">
+                      {reviewsPolarityLevel()}
+                    </Box>
+                  </Typography>
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>

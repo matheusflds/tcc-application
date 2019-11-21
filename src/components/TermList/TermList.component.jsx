@@ -39,6 +39,7 @@ export class TermList extends Component {
                   words={this.props.terms}
                   scale={100}
                   width={this.state.tagCloudWidth}
+                  height={400}
                   clickHandler={this.props.termClickHandler}
                 />
               }
