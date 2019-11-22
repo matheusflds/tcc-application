@@ -3,14 +3,21 @@ import times from 'lodash.times';
 
 import {
   Grid,
+  Box,
   Paper,
   Tab,
   Tabs,
   AppBar,
+  Typography,
+  ExpansionPanel,
+  ExpansionPanelDetails,
+  ExpansionPanelSummary,
 } from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import { TermDetails } from 'components/TermDetails';
 import { TopicPanel } from './TopicPanel.component';
+import { SentimentData } from 'components/SentimentData';
 
 export class Topics extends Component {
   constructor(props) {
@@ -39,6 +46,30 @@ export class Topics extends Component {
             term={this.props.term}
             tweetsCount={10000}
           />
+        </Grid>
+        <Grid item xs={12}>
+          <ExpansionPanel>
+            <ExpansionPanelSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography>
+                <Box fontWeight="fontWeightLight">
+                  Overall Results
+                </Box>
+              </Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+              <SentimentData
+                polarity={90}
+                joy={70}
+                anger={5}
+                fear={15}
+                sadness={10}
+              />
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
         </Grid>
         <Grid item xs={12}>
           <Paper ref={this.panelRef}>
