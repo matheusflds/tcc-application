@@ -68,6 +68,10 @@ export class Topics extends Component {
                   topic={topic}
                   cloudWidth={this.state.panelWidth}
                   polarity={Math.floor(Math.random() * 100)}
+                  joy={Math.floor(Math.random() * 100)}
+                  anger={Math.floor(Math.random() * 100)}
+                  fear={Math.floor(Math.random() * 100)}
+                  sadness={Math.floor(Math.random() * 100)}
                 />
               ))
             }

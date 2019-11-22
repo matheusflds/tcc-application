@@ -21,7 +21,7 @@ import { TermList } from './components/TermList';
 import { Topics } from './components/Topics';
 import { SideMenu } from './components/SideMenu';
 
-import logo from 'logo.png';
+import logo from 'images/logo.png';
 
 class App extends Component {
 
