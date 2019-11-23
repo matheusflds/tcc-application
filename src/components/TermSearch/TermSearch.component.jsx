@@ -48,7 +48,9 @@ export const TermSearch = (props) => {
                   <Grid item xs={12}>
                     <Typography variant="body1">
                       <Box fontWeight="fontWeightLight">
-                        To search for a term, fill the field below and click the button. It will take about 3 minutes to complete the processing. Additionally, you can click on a term within the word cloud below to see its results.
+                        To search for a term, fill the field below and click the button.
+                        It will take about 3 minutes to complete the processing.
+                        Additionally, you can click on a term within the word cloud below to see its results.
                       </Box>
                     </Typography>
                   </Grid>

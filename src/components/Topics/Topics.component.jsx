@@ -45,6 +45,7 @@ export class Topics extends Component {
           <TermDetails
             term={this.props.term}
             tweetsCount={10000}
+            description={this.props.description}
           />
         </Grid>
         <Grid item xs={12}>

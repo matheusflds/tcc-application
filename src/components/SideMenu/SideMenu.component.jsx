@@ -8,12 +8,13 @@ import {
   ListItemIcon,
   ListItemText,
 } from '@material-ui/core';
+import HomeIcon from '@material-ui/icons/Home';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import AssessmentIcon from '@material-ui/icons/Assessment';
 
 export class SideMenu extends Component {
   state = {
-    current: window.location.pathname === '/statistics' ? 'statistics' : 'terms',
+    current: window.location.pathname === '/statistics' ? 'statistics' : window.location.pathname === '/' ? 'home' : 'terms',
   };
 
   onLinkClick = (current) => () => {
@@ -21,11 +22,18 @@ export class SideMenu extends Component {
   }
 
   render() {
-    console.log(this.state);
     return(
       <Paper>
         <MenuList>
-          <LinkStyled to='/' onClick={this.onLinkClick('terms')}>
+          <LinkStyled to='/' onClick={this.onLinkClick('home')}>
+            <MenuItemStyled focused={this.state.current === 'home'}>
+              <ListItemIcon>
+                <HomeIcon fontSize="small" />
+              </ListItemIcon>
+              <ListItemText primary='Home'/>
+            </MenuItemStyled>
+          </LinkStyled>
+          <LinkStyled to='/terms' onClick={this.onLinkClick('terms')}>
             <MenuItemStyled focused={this.state.current === 'terms'}>
               <ListItemIcon>
                 <CheckBoxIcon fontSize="small" />

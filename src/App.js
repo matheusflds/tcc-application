@@ -17,9 +17,11 @@ import {
   Typography,
 } from '@material-ui/core';
 
-import { TermList } from './components/TermList';
-import { Topics } from './components/Topics';
 import { SideMenu } from './components/SideMenu';
+import { TermIndex } from './components/TermIndex';
+import { Topics } from './components/Topics';
+import { TermList } from 'components/TermList';
+import { Statistics } from 'components/Statistics';
 
 import logo from 'images/logo.png';
 
@@ -46,8 +48,10 @@ class App extends Component {
               </Grid>
               <Grid item xs={10}>
                 <Switch>
-                  <Route path='/' exact={true} component={TermList} />
+                  <Route path='/' exact={true} component={TermIndex} />
+                  <Route path='/terms' exact={true} component={TermList} />
                   <Route path='/topics/:term' component={Topics} />
+                  <Route path='/statistics' component={Statistics} />
                 </Switch>
               </Grid>
             </ContentBoxStyled>

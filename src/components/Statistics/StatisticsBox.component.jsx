@@ -1,20 +1,18 @@
 import React from 'react';
 
 import {
-  Paper,
-  Container,
   Grid,
+  Paper,
   Typography,
   Box,
+  Container,
 } from '@material-ui/core';
-import CommentSharpIcon from '@material-ui/icons/CommentSharp';
 
-import {
-  AvatarStyled,
-  TitleBoxStyled,
-} from './TermDetails.styles';
+import { AvatarStyled, TitleBoxStyled } from './Statistics.styles';
 
-export const TermDetails = (props) => {
+export const StatisticsBox = (props) => {
+  const { children, title, count, countLabel, icon } = props
+
   return(
     <Paper>
       <Container container>
@@ -23,16 +21,16 @@ export const TermDetails = (props) => {
             <Grid container>
               <Grid item xs={2}>
                 <AvatarStyled>
-                  <CommentSharpIcon />
+                  {icon}
                 </AvatarStyled>
               </Grid>
               <Grid item xs={9}>
                 <TitleBoxStyled>
                   <Typography variant="h5">
-                    <Box fontWeight="fontWeightBold">{props.term}</Box>
+                    <Box fontWeight="fontWeightBold">{title}</Box>
                   </Typography>
                   <Typography variant="body1">
-                    <Box fontWeight="fontWeightLight">{props.tweetsCount} tweets</Box>
+                    <Box fontWeight="fontWeightLight">{count} {countLabel}</Box>
                   </Typography>
                 </TitleBoxStyled>
               </Grid>
@@ -45,7 +43,7 @@ export const TermDetails = (props) => {
                   <Grid item xs={12}>
                     <Typography variant="body1">
                       <Box fontWeight="fontWeightLight">
-                        {props.description}
+                        {children}
                       </Box>
                     </Typography>
                   </Grid>
