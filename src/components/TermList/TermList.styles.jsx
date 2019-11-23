@@ -1,7 +1,9 @@
-import styled from 'styled-components';
+import { withStyles } from '@material-ui/core/styles';
 
-export const ListWrapperStyled = styled.div`
-  font-family: sans-serif;
-  text-align: center;
-  padding: 50px;
-`;
+import MaterialTable from 'material-table';
+
+export const TableStyled = withStyles({
+  root: {
+    "padding": "15px",
+  }
+})(MaterialTable);

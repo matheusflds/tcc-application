@@ -9,23 +9,29 @@ export class TopicsContainer extends Component {
     super(props);
     this.state = {
       topics: [],
+      term: null,
     };
   }
 
   async componentDidMount() {
     const query = this.props.match.params.term;
-    if (!query) {
-      return;
+    if (query) {
+      const { topics } = await topicList(query);
+      this.setState({
+        term: query,
+        topics: topics,
+        description: 'Jair Messias Bolsonaro (Brazilian Portuguese: [ʒaˈiʁ meˈsi.ɐz bowsoˈnaɾu, ʒaˈiɾ -]; born 21 March 1955) is a Brazilian politician and retired military officer who has been the 38th president of Brazil since 1 January 2019.'
+      });
     }
-    const { topics } = await topicList(query);
-    this.setState({
-      topics: topics,
-    });
   }
 
   render() {
     return(
-      <Topics topics={this.state.topics} />
+      <Topics
+        topics={this.state.topics}
+        term={this.state.term}
+        description={this.state.description}
+      />
     );
   }
 
