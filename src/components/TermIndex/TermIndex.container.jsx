@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { termList } from 'data/term.data';
+import { termCloudList } from 'data/term.data';
 import { TermIndex } from './TermIndex.component';
 
 export class TermIndexContainer extends Component {
@@ -13,9 +13,9 @@ export class TermIndexContainer extends Component {
   }
 
   async componentDidMount() {
-    const { terms } = await termList();
+    const { terms } = await termCloudList();
     this.setState({
-      terms: terms,
+      terms: terms.map(termData => [termData.term, termData.weigth]),
     });
   };
 
@@ -24,6 +24,7 @@ export class TermIndexContainer extends Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <TermIndex
         terms={this.state.terms}
