@@ -24,7 +24,7 @@ export const TopicPanel = (props) => {
         <Grid item xs={12}>
           <TagCloud
             words={topic}
-            scale={1000}
+            scale={2}
             key={index}
             width={cloudWidth}
             height={300}

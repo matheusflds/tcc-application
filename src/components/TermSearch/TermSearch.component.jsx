@@ -59,6 +59,7 @@ export const TermSearch = (props) => {
                       id="standard-basic"
                       label="Term"
                       margin="normal"
+                      value={props.searchTerm}
                       onChange={props.inputChangedHandler}
                     />
                   </Grid>

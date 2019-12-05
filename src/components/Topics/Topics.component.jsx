@@ -44,7 +44,7 @@ export class Topics extends Component {
         <Grid item xs={12}>
           <TermDetails
             term={this.props.term}
-            tweetsCount={10000}
+            tweetsCount={this.props.tweetCount}
             description={this.props.description}
           />
         </Grid>
@@ -62,13 +62,15 @@ export class Topics extends Component {
               </Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
-              <SentimentData
-                polarity={90}
-                joy={70}
-                anger={5}
-                fear={15}
-                sadness={10}
-              />
+              {this.props.overallResults &&
+                <SentimentData
+                  polarity={this.props.overallResults.polarity}
+                  joy={this.props.overallResults.joy}
+                  anger={this.props.overallResults.anger}
+                  fear={this.props.overallResults.fear}
+                  sadness={this.props.overallResults.sadness}
+                />
+              }
             </ExpansionPanelDetails>
           </ExpansionPanel>
         </Grid>
@@ -97,13 +99,13 @@ export class Topics extends Component {
                   key={index}
                   value={this.state.value}
                   index={index}
-                  topic={topic}
+                  topic={topic.words}
                   cloudWidth={this.state.panelWidth}
-                  polarity={Math.floor(Math.random() * 100)}
-                  joy={Math.floor(Math.random() * 100)}
-                  anger={Math.floor(Math.random() * 100)}
-                  fear={Math.floor(Math.random() * 100)}
-                  sadness={Math.floor(Math.random() * 100)}
+                  polarity={topic.polarity}
+                  joy={topic.joy}
+                  anger={topic.anger}
+                  fear={topic.fear}
+                  sadness={topic.sadness}
                 />
               ))
             }

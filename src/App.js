@@ -23,7 +23,12 @@ import { Topics } from './components/Topics';
 import { TermList } from 'components/TermList';
 import { Statistics } from 'components/Statistics';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import logo from 'images/logo.png';
+
+toast.configure()
 
 class App extends Component {
 

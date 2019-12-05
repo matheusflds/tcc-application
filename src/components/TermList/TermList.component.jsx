@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 
 import {
-  Paper,
   Grid,
 } from '@material-ui/core';
 

@@ -6,6 +6,19 @@ export const termCloudList = async () => {
     method: 'GET',
     params: {
       quantity: 10,
+      completed: 1,
+    }
+  };
+
+  return await request(options);
+}
+
+export const termSearch = async (term) => {
+  const options = {
+    url: '/terms',
+    method: 'POST',
+    params: {
+      term_text: term,
     }
   };
 
