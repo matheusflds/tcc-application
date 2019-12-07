@@ -13,6 +13,15 @@ export const termCloudList = async () => {
   return await request(options);
 }
 
+export const termList = async () => {
+  const options = {
+    url: '/terms',
+    method: 'GET',
+  }
+
+  return await request(options);
+}
+
 export const termSearch = async (term) => {
   const options = {
     url: '/terms',
