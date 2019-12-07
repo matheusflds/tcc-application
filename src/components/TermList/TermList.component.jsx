@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 
 import {
-  Paper,
   Grid,
 } from '@material-ui/core';
 
@@ -69,7 +68,7 @@ export const TermList = (props) => {
             {
               title: "Status",
               field: "status",
-              lookup: { 1: 'Pending', 2: 'Processing', 3: 'Processed' },
+              lookup: { 0: 'Pending', 1: 'Processing', 2: 'Processed' },
               searchable: false
             },
           ]}
@@ -78,8 +77,8 @@ export const TermList = (props) => {
             rowData => ({
               icon: () => (<VisibilityIcon />),
               tooltip: 'See results',
-              onClick: (event, rowData) => props.termClickHandler(rowData.term),
-              hidden: rowData.status !== 3,
+              onClick: (event, rowData) => props.termClickHandler(rowData.id),
+              hidden: rowData.status !== 2,
             })
           ]}
           options={{actionsColumnIndex: 3}}

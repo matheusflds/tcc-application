@@ -23,7 +23,12 @@ import { Topics } from './components/Topics';
 import { TermList } from 'components/TermList';
 import { Statistics } from 'components/Statistics';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import logo from 'images/logo.png';
+
+toast.configure()
 
 class App extends Component {
 
@@ -50,7 +55,7 @@ class App extends Component {
                 <Switch>
                   <Route path='/' exact={true} component={TermIndex} />
                   <Route path='/terms' exact={true} component={TermList} />
-                  <Route path='/topics/:term' component={Topics} />
+                  <Route path='/topics/:id' component={Topics} />
                   <Route path='/statistics' component={Statistics} />
                 </Switch>
               </Grid>
