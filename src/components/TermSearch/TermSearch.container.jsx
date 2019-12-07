@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
 import { toast } from 'react-toastify';
+import { withRouter } from 'react-router-dom';
 
 import { TermSearch } from './TermSearch.component';
-
 import { termSearch } from 'data/term.data';
 
-export class TermSearchContainer extends Component {
+class TermSearchContainer extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: null,
+      searchTerm: '',
     };
   }
 
   termSearchClickHandler = async () => {
     if(this.state.searchTerm) {
-      const { message } = await termSearch(this.state.searchTerm);
+      const { message, id } = await termSearch(this.state.searchTerm);
+      if(id) {
+        this.props.history.push(`/topics/${id}`)
+      }
       toast.info(message);
-      this.setState({ searchTerm: null });
+      this.setState({ searchTerm: '' });
     }
   };
 
@@ -38,3 +41,5 @@ export class TermSearchContainer extends Component {
     );
   }
 }
+
+export const TermSearchWithRouter = withRouter(TermSearchContainer)

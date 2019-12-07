@@ -18,7 +18,6 @@ export class TagCloud extends Component {
       shrinkToFit: true,
       click: (item) => {
         const term = item[0];
-        console.log(item[0]);
         this.props.clickHandler && this.props.clickHandler(term);
       },
     });

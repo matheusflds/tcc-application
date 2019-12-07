@@ -1,1 +1,1 @@
-export { TermSearchContainer as TermSearch } from './TermSearch.container';
+export { TermSearchWithRouter as TermSearch } from './TermSearch.container';

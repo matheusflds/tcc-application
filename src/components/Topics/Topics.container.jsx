@@ -17,9 +17,9 @@ export class TopicsContainer extends Component {
   }
 
   async componentDidMount() {
-    const query = this.props.match.params.term;
-    if (query) {
-      const results = await topicList(query);
+    const id = this.props.match.params.id;
+    if (id) {
+      const results = await topicList(id);
       this.setState({ ...results });
     }
   }

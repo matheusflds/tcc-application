@@ -55,7 +55,7 @@ class App extends Component {
                 <Switch>
                   <Route path='/' exact={true} component={TermIndex} />
                   <Route path='/terms' exact={true} component={TermList} />
-                  <Route path='/topics/:term' component={Topics} />
+                  <Route path='/topics/:id' component={Topics} />
                   <Route path='/statistics' component={Statistics} />
                 </Switch>
               </Grid>
