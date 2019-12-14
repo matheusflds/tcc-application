@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
 import { Statistics } from './Statistics.component';
+import { statistics } from 'data/statistics.data';
 
 export class StatisticsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      pendingTermCount: null,
+      processingTermCount: null,
+      processedTermCount: null,
       tweetCount: null,
-      termCount: null,
       topicCount: null,
-    }
+    };
   }
 
-  componentDidMount() {
-    this.setState({
-      pendingTermCount: Math.floor(Math.random() * 10000),
-      processingTermCount: Math.floor(Math.random() * 10000),
-      processedTermCount: Math.floor(Math.random() * 10000),
-      tweetCount: Math.floor(Math.random() * 10000),
-      topicCount: Math.floor(Math.random() * 10000),
-    })
+  async componentDidMount() {
+    const results = await statistics();
+    this.setState({ ...results });
   }
 
   render() {
