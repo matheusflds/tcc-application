@@ -29,9 +29,9 @@ export const Statistics = (props) => {
           countLabel="searched terms"
           icon={<CommentSharpIcon />}
         >
-          There are a total of <b>{totalTerms}</b> searched terms. Under this
+          There are a total of <b>{totalTerms}</b> searched terms. Under these
           terms, <i>{pendingTermCount}</i> will be processed, <i>{processingTermCount}
-          </i> are processing and <i>{processedTermCount}</i> have been processed.
+          </i> are being processed and <i>{processedTermCount}</i> have been processed.
         </StatisticsBox>
       </Grid>
       <Grid item xs={12}>
